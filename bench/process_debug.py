@@ -214,6 +214,8 @@ def plotWorkerTime(workertime, worker_names, filename):
     ax.set_title('Worked time for each worker')
     ax.set_xticks([x+(width/2.0) for x in ind])
     ax.set_xticklabels(worker_names)
+    for tick in ax.xaxis.get_major_ticks():
+        tick.label.set_rotation('vertical')
     fig.savefig(filename,bbox_inches='tight')
 
 
@@ -228,6 +230,9 @@ def plotWorkerTask(workertask, worker_names, filename):
     ax.set_title('Number of tasks executed by each worker')
     ax.set_xticks([x+(width/2.0) for x in ind])
     ax.set_xticklabels(worker_names)
+
+    for tick in ax.xaxis.get_major_ticks():
+        tick.label.set_rotation('vertical')
 
     fig.savefig(filename,bbox_inches='tight')
 
