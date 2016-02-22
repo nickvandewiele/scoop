@@ -125,6 +125,7 @@ def plotDensity(dataTask, filename):
             DENSITY_MAP_TIME_AXIS_LENGTH * x + start_time)
         return ts.strftime("%H:%M:%S")
 
+
     graphdata = WorkersDensity(dataTask)
     if len(graphdata):
         fig = plt.figure()
@@ -142,7 +143,7 @@ def plotDensity(dataTask, filename):
                                  interval_size))
         ax.xaxis.set_major_formatter(ticker.FuncFormatter(format_time))
         cbar = fig.colorbar(cax)
-        fig.savefig(filename)
+        fig.savefig(filename,bbox_inches='tight')
 
 def plotBrokerQueue(dataTask, filename):
     # Broker queue length graph
@@ -163,7 +164,7 @@ def plotBrokerQueue(dataTask, filename):
             plt.plot(list(zip(*vals))[0], list(zip(*vals))[3], linewidth=1.0, marker='o', label=fichier)
     plt.xlabel('time (s)')
     plt.ylabel('Requests')
-    plt.savefig(filename)
+    plt.savefig(filename,bbox_inches='tight')
 
 def plotWorkerQueue(dataQueue, filename):
     # workers Queue length Graph
@@ -186,7 +187,7 @@ def plotWorkerQueue(dataQueue, filename):
         ax.plot(*(list(zip(*vals))[:2]), label=fichier)
     plt.xlabel('time(s)'); plt.ylabel('Queue Length')
     plt.title('Queue length through time')
-    fig.savefig(filename)
+    fig.savefig(filename,bbox_inches='tight')
 
 def getWorkerInfo(dataTask):
     """Returns the total execution time and task quantity by worker"""
@@ -213,8 +214,7 @@ def plotWorkerTime(workertime, worker_names, filename):
     ax.set_title('Worked time for each worker')
     ax.set_xticks([x+(width/2.0) for x in ind])
     ax.set_xticklabels(worker_names)
-
-    fig.savefig(filename)
+    fig.savefig(filename,bbox_inches='tight')
 
 
 def plotWorkerTask(workertask, worker_names, filename):
@@ -229,7 +229,7 @@ def plotWorkerTask(workertask, worker_names, filename):
     ax.set_xticks([x+(width/2.0) for x in ind])
     ax.set_xticklabels(worker_names)
 
-    fig.savefig(filename)
+    fig.savefig(filename,bbox_inches='tight')
 
 
 def timelines(fig, y, xstart, xstop, color='b'):
@@ -281,7 +281,7 @@ def plotTimeline(dataTask, filename):
     ax.set_ylim(0, 1)
     #fig.xlim()
     ax.set_xlabel('Time')
-    fig.savefig(filename)
+    fig.savefig(filename,bbox_inches='tight')
 
 
 if __name__ == "__main__":
