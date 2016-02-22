@@ -285,7 +285,7 @@ def plotTimeline(dataTask, filename):
     ax.set_yticklabels(worker_names)
     ax.set_ylim(0, 1)
     #fig.xlim()
-    ax.set_xlabel('Time')
+    ax.set_xlabel('Time (s)')
     plt.grid()
     fig.savefig(filename,bbox_inches='tight')
 
