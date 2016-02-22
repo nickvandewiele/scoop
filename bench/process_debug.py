@@ -286,6 +286,7 @@ def plotTimeline(dataTask, filename):
     ax.set_ylim(0, 1)
     #fig.xlim()
     ax.set_xlabel('Time')
+    plt.grid()
     fig.savefig(filename,bbox_inches='tight')
 
 
